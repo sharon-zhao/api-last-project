@@ -1,17 +1,17 @@
 #!/bin/bash
 
 API="http://localhost:4741"
-URL_PATH="/shopping-cart"
+URL_PATH="/my-course"
 
 curl "${API}${URL_PATH}" \
   --include \
-  --request POST \
+  --request PATCH \
   --header "Content-Type: application/json" \
   --header "Authorization: Bearer ${TOKEN}" \
   --data '{
     "cart": {
-      "carts": "'"${TITLE}"'",
-      "price": "'"${PRICE}"'"
+      "title": "'"${TITLE}"'",
+      "body": "'"${BODY}"'"
     }
   }'
 

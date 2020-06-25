@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const cartSchema = new mongoose.Schema({
+const courseSchema = new mongoose.Schema({
   title: {
     type: String,
     maxlength: 50,
@@ -23,4 +23,4 @@ const cartSchema = new mongoose.Schema({
   }
 })
 
-module.exports = mongoose.model('Cart', cartSchema)
+module.exports = mongoose.model('Course', courseSchema)
