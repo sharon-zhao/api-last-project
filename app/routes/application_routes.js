@@ -74,20 +74,21 @@ router.post('/applications', requireToken, (req, res, next) => {
 
 // UPDATE
 // PATCH /examples/5a7db6c74d55bc51bdf39793
-router.patch('/applications/:id', requireToken, removeBlanks, (req, res, next) => {
+router.patch('/applications/:id', removeBlanks, (req, res, next) => {
   // if the client attempts to change the `owner` property by including a new
   // owner, prevent that by deleting that key/value pair
-  delete req.body.application.owner
+  // delete req.body.application.owner
 
   Application.findById(req.params.id)
     .then(handle404)
     .then(result => {
+      console.log(result)
       // pass the `req` object and the Mongoose record to `requireOwnership`
       // it will throw an error if the current user isn't the owner
-      requireOwnership(req, result)
+      // requireOwnership(req, result)
 
       // pass the result of Mongoose's `.update` to the next `.then`
-      return result.updateOne(req.body.result)
+      return result.updateOne(req.body.appl)
     })
     // if that succeeded, return 204 and no JSON
     .then(() => res.sendStatus(204))
