@@ -12,7 +12,7 @@ const applicationRoutes = require('./app/routes/application_routes')
 const errorHandler = require('./lib/error_handler')
 const replaceToken = require('./lib/replace_token')
 const requestLogger = require('./lib/request_logger')
-// const stripeRoutes = require('./app/routes/stripe_routes')
+const stripeRoutes = require('./app/routes/stripe_routes')
 
 // require database configuration logic
 // `db` will be the actual Mongo URI as a string
@@ -68,7 +68,7 @@ app.use(applicationRoutes)
 
 app.use(courseRoutes)
 
-// app.use(stripeRoutes)
+app.use(stripeRoutes)
 // register error handling middleware
 // note that this comes after the route middlewares, because it needs to be
 // passed any error messages from them
