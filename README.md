@@ -29,11 +29,14 @@ For the checkout part, I need to delete the information in the previous cart, th
 - Bootstrap
 
 ## Wireframe and ERD
+Wireframe:
+https://media.git.generalassemb.ly/user/27505/files/ab88fd80-b6e1-11ea-9b6e-26aa7f608802
 Entity Relationship Diagrams:
 Resources:
   1. User
   2. Course
   3. Application
+https://media.git.generalassemb.ly/user/27505/files/cf007800-b6e2-11ea-8e97-ccfea43d5b65
 
 ## Page Demo
 https://user-images.githubusercontent.com/62820094/85748705-4380ea00-b6d6-11ea-81af-4a85a4cec42a.png
@@ -41,3 +44,4 @@ https://user-images.githubusercontent.com/62820094/85748855-5b586e00-b6d6-11ea-9
 
 ### Unsolved Problems/Future Updates
 - Combine the same content in the cart to show as number increase.
+- Pay for the course
