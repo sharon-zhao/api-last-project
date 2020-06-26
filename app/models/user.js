@@ -11,6 +11,8 @@ const userSchema = new mongoose.Schema({
     required: false
     // unique: true
   },
+  stripeId: String,
+  token: String,
   hashedPassword: {
     type: String,
     required: true

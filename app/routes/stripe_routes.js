@@ -4,6 +4,7 @@ const router = express.Router()
 // const requireToken = passport.authenticate('bearer', { session: false })
 
 router.post('/stripe/charge', (req, res, next) => {
+  console.log(req.body)
   const charge = req.body.charge
   const stripe = require('stripe')('sk_test_51GwtbWItoru9tJqqJpxnov9vsiSPKVxI5TtnH3bG3tetqRgX7MhQBYPzJd9LKgayKpTnT1lUcDK5bOEdQ1VUYRyb00hSEAuBlK')
   stripe.charges.create({
@@ -16,6 +17,7 @@ router.post('/stripe/charge', (req, res, next) => {
 })
 
 router.post('/stripe/customer', (req, res, next) => {
+  console.log(req.body)
   const customer = req.body.customer
   const stripe = require('stripe')('sk_test_51GwtbWItoru9tJqqJpxnov9vsiSPKVxI5TtnH3bG3tetqRgX7MhQBYPzJd9LKgayKpTnT1lUcDK5bOEdQ1VUYRyb00hSEAuBlK')
   stripe.customers.create(customer)
@@ -40,6 +42,7 @@ router.post('/stripe/card-token', (req, res, next) => {
 
 router.patch('/stripe/customer/:id', (req, res, next) => {
   const id = req.params.id
+  console.log(req.body)
   const customer = req.body.customer
   const stripe = require('stripe')('sk_test_51GwtbWItoru9tJqqJpxnov9vsiSPKVxI5TtnH3bG3tetqRgX7MhQBYPzJd9LKgayKpTnT1lUcDK5bOEdQ1VUYRyb00hSEAuBlK')
   stripe.customers.update(

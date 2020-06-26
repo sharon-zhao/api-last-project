@@ -139,4 +139,15 @@ router.delete('/sign-out', requireToken, (req, res, next) => {
     .catch(next)
 })
 
+router.patch('/add-stripe/:id', requireToken, (req, res, next) => {
+  const id = req.params.id
+  const newUser = req.body.user
+  User.findById(id)
+    .then(user => {
+      user.stripeId = newUser.stripeId
+      return user.save()
+    })
+    .then(() => res.sendStatus(204))
+    .catch(next)
+})
 module.exports = router
