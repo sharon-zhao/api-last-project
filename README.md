@@ -43,7 +43,7 @@ Resources:
 https://media.git.generalassemb.ly/user/27505/files/cf007800-b6e2-11ea-8e97-ccfea43d5b65
 
 ## Page Demo
-![](/https://user-images.githubusercontent.com/62820094/85748705-4380ea00-b6d6-11ea-81af-4a85a4cec42a.png)
+![](https://user-images.githubusercontent.com/62820094/85748705-4380ea00-b6d6-11ea-81af-4a85a4cec42a.png)
 2. https://user-images.githubusercontent.com/62820094/85748855-5b586e00-b6d6-11ea-99a4-0f5bd2472519.png
 
 ### Unsolved Problems/Future Updates
