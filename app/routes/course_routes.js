@@ -44,6 +44,7 @@ router.delete('/delete-cart', requireToken, (req, res, next) => {
 // CREATE - POST /posts
 router.post('/add-course', requireToken, (req, res, next) => {
   req.body.owner = req.user._id
+  console.log(req.body)
   Course.create(req.body)
     .then(cart => {
       res.status(201).json({ cart: cart })

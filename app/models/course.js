@@ -11,6 +11,10 @@ const courseSchema = new mongoose.Schema({
     maxlength: 400,
     required: true
   },
+  imageUrl:{
+    type: String,
+    required: true
+  },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
