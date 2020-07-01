@@ -33,10 +33,10 @@ For the checkout part, I need to delete the information in the previous cart, th
 - Bootstrap
 
 ## Wireframe and ERD
-Wireframe:
+- Wireframe:
 https://media.git.generalassemb.ly/user/27505/files/ab88fd80-b6e1-11ea-9b6e-26aa7f608802
-Entity Relationship Diagrams:
-Resources:
+- Entity Relationship Diagrams:
+- Resources:
   1. User
   2. Course
   3. Application
@@ -45,6 +45,11 @@ https://media.git.generalassemb.ly/user/27505/files/cf007800-b6e2-11ea-8e97-ccfe
 ## Page Demo
 ![](https://user-images.githubusercontent.com/62820094/85748705-4380ea00-b6d6-11ea-81af-4a85a4cec42a.png)
 ![](https://user-images.githubusercontent.com/62820094/85748855-5b586e00-b6d6-11ea-99a4-0f5bd2472519.png)
+
+## Routes
+- Application route has POST PATCH DELETE GET methods
+- Course route has POST DELETE GET methods
+All the courses in My Cart use get method, when user delete one course, the page will reload all the courses again so there is not patch method for the shopping cart part.
 
 ### Unsolved Problems/Future Updates
 - Combine the same content in the cart to show as number increase.

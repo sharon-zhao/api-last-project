@@ -8,11 +8,11 @@ const requireOwnership = customErrors.requireOwnership
 const removeBlanks = require('../../lib/remove_blank_fields')
 const requireToken = passport.authenticate('bearer', { session: false })
 const router = express.Router()
-const Cart = require('../models/cart-models')
+const User = require('../models/user')
 
-router.post('/shopping-cart', requireToken, (req, res, next) => {
+router.patch('/shopping-cart', requireToken, (req, res, next) => {
   console.log(req.body)
-  const cart = req.body.cart
+  const shoppingCart = req.body.shoppingCart
   const user = req.user
   User.findById(user)
     .then(user => {
@@ -23,3 +23,31 @@ router.post('/shopping-cart', requireToken, (req, res, next) => {
     .then(currUser => res.status(201).json({ shoppingCarts: currUser.shoppingCarts.toObject() }))
     .catch(next)
 })
+
+router.get('/shopping-cart', requireToken, (req, res, next) => {
+  User.findById(req.user)
+    .populate('shoppingCarts.courses')
+    .then(handle404)
+    .then(user => {
+      console.log(user)
+      return user.shoppingCarts
+    })
+    .then(carts => res.status(200).json({ shoppingCart: carts.toObject() }))
+    .catch(next)
+})
+
+router.patch('/shoppingcart', requireToken, (req, res, next) => {
+  const course = req.body.data.cart
+  const user = req.user
+  User.findById(user)
+    .then((user) => {
+      const shoppingCart = user.shoppingCarts[0] // returns a matching subdocument
+      console.log(typeof shoppingCart.courses)
+      shoppingCart.courses.push(course) // updates the address while keeping its schema
+      return user.save() // saves document with subdocuments and triggers validation
+    })
+    .then(shoppingCart => res.sendStatus(204))
+    .catch(next)
+})
+
+module.exports = router

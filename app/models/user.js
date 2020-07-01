@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const { cartSchema } = require('./shoppingCart')
 
 const userSchema = new mongoose.Schema({
   email: {
@@ -12,6 +13,7 @@ const userSchema = new mongoose.Schema({
     // unique: true
   },
   stripeId: String,
+  shoppingCarts: [cartSchema],
   token: String,
   hashedPassword: {
     type: String,
