@@ -42,7 +42,6 @@ router.patch('/shoppingcart', requireToken, (req, res, next) => {
   User.findById(user)
     .then((user) => {
       const shoppingCart = user.shoppingCarts[0] // returns a matching subdocument
-      console.log(typeof shoppingCart.courses)
       shoppingCart.courses.push(course) // updates the address while keeping its schema
       return user.save() // saves document with subdocuments and triggers validation
     })

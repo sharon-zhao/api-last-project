@@ -8,6 +8,7 @@ const userRoutes = require('./app/routes/user_routes')
 const courseRoutes = require('./app/routes/course_routes')
 const applicationRoutes = require('./app/routes/application_routes')
 const cartRoutes = require('./app/routes/cart_routes')
+const displayRoutes = require('./app/routes/display_routes')
 // require middleware
 const errorHandler = require('./lib/error_handler')
 const replaceToken = require('./lib/replace_token')
@@ -69,6 +70,8 @@ app.use(applicationRoutes)
 app.use(courseRoutes)
 
 app.use(cartRoutes)
+
+app.use(displayRoutes)
 
 app.use(stripeRoutes)
 // register error handling middleware
