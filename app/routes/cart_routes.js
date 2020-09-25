@@ -11,7 +11,6 @@ const router = express.Router()
 const User = require('../models/user')
 
 router.patch('/shopping-cart', requireToken, (req, res, next) => {
-  console.log(req.body)
   const shoppingCart = req.body.shoppingCart
   const user = req.user
   User.findById(user)
