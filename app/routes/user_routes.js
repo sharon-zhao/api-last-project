@@ -36,8 +36,7 @@ router.post('/sign-up', (req, res, next) => {
       if (!credentials ||
           !credentials.password ||
           credentials.password !== credentials.password_confirmation) {
-        // throw new BadParamsError()
-        process.exit(1)
+        throw new BadParamsError()
       }
     })
     // generate a hash from the provided password, returning a promise
@@ -70,8 +69,7 @@ router.post('/sign-in', (req, res, next) => {
     .then(record => {
       // if we didn't find a user with that email, send 401
       if (!record) {
-        process.exit(1)
-        // throw new BadCredentialsError()
+        throw new BadCredentialsError()
       }
       // save the found user outside the promise chain
       user = record
@@ -90,8 +88,7 @@ router.post('/sign-in', (req, res, next) => {
       } else {
         // throw an error to trigger the error handler and end the promise chain
         // this will send back 401 and a message about sending wrong parameters
-        // throw new BadCredentialsError()
-        process.exit(1)
+        throw new BadCredentialsError()
       }
     })
     .then(user => {
@@ -117,8 +114,7 @@ router.patch('/change-password', requireToken, (req, res, next) => {
       // throw an error if the new password is missing, an empty string,
       // or the old password was wrong
       if (!req.body.passwords.new || !correctPassword) {
-        process.exit(1)
-        // throw new BadParamsError()
+        throw new BadParamsError()
       }
     })
     // hash the new password
