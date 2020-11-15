@@ -3,7 +3,7 @@ const fs = require('fs');
 
 const credentials = fs.readFileSync('<path_to_certificate>');
 
-const client = new MongoClient('mongodb+srv://sharon:Zxr2303811992-@cluster0.tw9s5.mongodb.net/testDB?retryWrites=true&w=majority', {
+const client = new MongoClient('mongodb+srv://sharon:<pw>-@cluster0.tw9s5.mongodb.net/testDB?retryWrites=true&w=majority', {
   sslKey: credentials,
   sslCert: credentials
 });
